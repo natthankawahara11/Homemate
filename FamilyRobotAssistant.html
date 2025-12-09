@@ -1,0 +1,1703 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Chatbot Welcome</title>
+  <meta name="viewport" content="width=device-width,
+             initial-scale=1.0,
+             maximum-scale=1.0,
+             user-scalable=no,
+             viewport-fit=cover" />
+
+  <!-- Poppins font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="apple-touch-icon" sizes="180x180" href="Profile1.png" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      touch-action: none;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    input,
+    textarea {
+      -webkit-user-select: text;
+      user-select: text;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      background: url("Pic4.png") center/cover no-repeat;
+      background-color: #b3ebf2;
+      font-family: "Poppins", sans-serif;
+    }
+
+    /* ---------- FRAME 1 (Welcome) ---------- */
+
+    .frame-1 {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      background: transparent;
+      overflow: hidden;
+      display: block;
+    }
+
+    .main-picture {
+      position: absolute;
+      left: 4.8%;
+      top: 10.4%;
+      width: 32.5%;
+      height: 94.4%;
+      border-radius: 24px;
+      overflow: hidden;
+    }
+
+    .main-picture img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .title {
+      position: absolute;
+      left: 52.1%;
+      top: 18.0%;
+      font-weight: 700;
+      font-size: 2.2rem;
+      color: #631aad;
+    }
+
+    .subtitle {
+      position: absolute;
+      left: 52.1%;
+      top: 28.8%;
+      width: 43.5%;
+      font-weight: 500;
+      font-size: 1.2rem;
+      line-height: 1.3;
+      color: #631aad;
+    }
+
+    .option-card {
+      position: absolute;
+      left: 52.1%;
+      width: 43.5%;
+      height: 15.8%;
+      border-radius: 18px;
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .option-card-1 {
+      top: 48.4%;
+    }
+
+    .option-card-2 {
+      top: 70.3%;
+    }
+
+    .option-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* ---------- FRAME 2 (Carousel) ---------- */
+
+    .frame-2 {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      background: url("Pic5.png") center/cover no-repeat;
+      overflow: hidden;
+      display: none;
+    }
+
+    .slider-wrapper {
+      position: absolute;
+      left: 10.1%;
+      top: 10.6%;
+      width: 79.9%;
+      height: 68.5%;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .slider {
+      width: 300%;
+      height: 100%;
+      display: flex;
+      transition: transform 0.25s ease;
+    }
+
+    .slide {
+      width: 33.3333%;
+      height: 100%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .frame2-btn-left,
+    .frame2-btn-right {
+      position: absolute;
+      top: 80.2%;
+      width: 16.4%;
+      height: 14.0%;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      outline: none;
+    }
+
+    .frame2-btn-left {
+      left: 6.0%;
+    }
+
+    .frame2-btn-right {
+      left: 77.5%;
+    }
+
+    .frame2-btn-left img,
+    .frame2-btn-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .frame2-dot {
+      position: absolute;
+      top: 84.0%;
+      width: 1.65%;
+      height: 3.38%;
+      border-radius: 50%;
+    }
+
+    .frame2-dot-1 {
+      left: 46.7%;
+    }
+
+    .frame2-dot-2 {
+      left: 49.2%;
+    }
+
+    .frame2-dot-3 {
+      left: 51.8%;
+    }
+
+    .frame2-close {
+      position: absolute;
+      left: 90.5%;
+      top: 7.2%;
+      width: 4.7%;
+      height: 6.8%;
+      cursor: pointer;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      outline: none;
+    }
+
+    .frame2-close img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* ---------- FRAME 3 (Nickname + avatar) ---------- */
+
+    .frame-3 {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      background: url("Pic12.png") center/cover no-repeat;
+      overflow: hidden;
+      display: none;
+    }
+
+    .frame3-btn-left,
+    .frame3-btn-right {
+      position: absolute;
+      top: 80.2%;
+      width: 16.4%;
+      height: 14.0%;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      outline: none;
+    }
+
+    .frame3-btn-left {
+      left: 6.0%;
+    }
+
+    .frame3-btn-right {
+      left: 77.5%;
+    }
+
+    .frame3-btn-left img,
+    .frame3-btn-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .nickname-input {
+      position: absolute;
+      left: 57.9%;
+      top: 50%;
+      width: 25%;
+      border: none;
+      background: transparent;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #000000;
+      font-family: "Poppins", sans-serif;
+      outline: none;
+    }
+
+    .nickname-input::placeholder {
+      color: #000000;
+      opacity: 1;
+    }
+
+    .profile-avatar {
+      position: absolute;
+      left: 68.1%;
+      top: 14.9%;
+      width: 14.5%;
+      height: 29.7%;
+      border-radius: 50%;
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ---------- FRAME AVATAR ---------- */
+
+    .frame-avatar {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      background: url("Pic14.png") center/cover no-repeat;
+      overflow: hidden;
+      display: none;
+    }
+
+    .profile-option {
+      position: absolute;
+      width: 14.7%;
+      height: 30.2%;
+      border-radius: 50%;
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile-option img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .profile-1 {
+      left: 6.0%;
+      top: 24.6%;
+    }
+
+    .profile-2 {
+      left: 24.3%;
+      top: 24.6%;
+    }
+
+    .profile-3 {
+      left: 42.5%;
+      top: 24.3%;
+    }
+
+    .profile-4 {
+      left: 61.1%;
+      top: 23.9%;
+    }
+
+    .profile-5 {
+      left: 79.2%;
+      top: 23.9%;
+    }
+
+    .profile-6 {
+      left: 6.1%;
+      top: 62.4%;
+    }
+
+    .profile-7 {
+      left: 24.5%;
+      top: 62.4%;
+    }
+
+    .profile-8 {
+      left: 42.8%;
+      top: 62.4%;
+    }
+
+    .profile-9 {
+      left: 61.1%;
+      top: 62.4%;
+    }
+
+    .profile-10 {
+      left: 79.2%;
+      top: 62.4%;
+    }
+
+    /* ---------- FRAME 4 (Age select) ---------- */
+
+    .frame-4 {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      background: url("Pic15.png") center/cover no-repeat;
+      overflow: hidden;
+      display: none;
+    }
+
+    .age-title {
+      position: absolute;
+      top: 12.4%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      font-weight: 500;
+      font-size: 20px;
+      color: rgba(99, 26, 173, 0.75);
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    .frame4-btn-left,
+    .frame4-btn-right {
+      position: absolute;
+      top: 80.2%;
+      width: 16.4%;
+      height: 14.0%;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      outline: none;
+    }
+
+    .frame4-btn-left {
+      left: 6.0%;
+    }
+
+    .frame4-btn-right {
+      left: 77.5%;
+      display: none;
+    }
+
+    .frame4-btn-left img,
+    .frame4-btn-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .age-card {
+      position: absolute;
+      border-radius: 24px;
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .age-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .age-1 {
+      left: 4.4%;
+      top: 34.1%;
+      width: 18.3%;
+      height: 37.6%;
+    }
+
+    .age-2 {
+      left: 23.7%;
+      top: 28.9%;
+      width: 18.3%;
+      height: 42.8%;
+    }
+
+    .age-3 {
+      left: 42.8%;
+      top: 34.1%;
+      width: 18.3%;
+      height: 37.6%;
+    }
+
+    .age-4 {
+      left: 62.0%;
+      top: 34.1%;
+      width: 18.3%;
+      height: 37.6%;
+    }
+
+    .age-5 {
+      left: 81.2%;
+      top: 31.2%;
+      width: 18.3%;
+      height: 40.5%;
+    }
+
+    /* ---------- FRAME 5 (Well done + accounts) ---------- */
+
+    .frame-5 {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      background: url("Pic15.png") center/cover no-repeat;
+      overflow: hidden;
+      display: none;
+    }
+
+    .done-title {
+      position: absolute;
+      top: 12.4%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-weight: 700;
+      font-size: 32px;
+      color: #631AAD;
+      white-space: nowrap;
+      text-align: center;
+    }
+
+    .done-subtitle {
+      position: absolute;
+      top: 23.2%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-weight: 500;
+      font-size: 20px;
+      color: rgba(99, 26, 173, 0.75);
+      white-space: nowrap;
+      text-align: center;
+    }
+
+    .profiles-list {
+      position: absolute;
+      top: 160px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: nowrap;
+      align-items: flex-start;
+    }
+
+    .profile-card {
+      position: relative;
+      width: 160px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .profile-card-avatar {
+      width: 116px;
+      height: 116px;
+      margin: 0 auto;
+      border-radius: 999px;
+      overflow: hidden;
+      border: 6px solid #ffffff;
+      box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.25);
+      opacity: 0.95;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile-card-avatar img {
+      width: 130%;
+      height: 130%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .profile-name {
+      margin-top: 8px;
+      font-weight: 600;
+      font-size: 20px;
+      color: rgba(99, 26, 173, 0.75);
+      word-break: break-word;
+    }
+
+    .profile-delete-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      transform: translate(-50%, -50%);
+      display: none;
+      cursor: pointer;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .profile-delete-overlay img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .profile-card.show-delete .profile-delete-overlay {
+      display: block;
+    }
+
+    .profile-card.add-card .profile-card-avatar {
+      border: none;
+      box-shadow: none;
+      width: 75px;
+      height: 75px;
+    }
+
+    .profile-card.add-card .profile-card-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* เลื่อน ProfileAdd ลง 20px นิดนึง */
+    .profile-card.add-card {
+      margin-top: 20px;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      outline: none;
+    }
+
+    /* ---------- FRAME 6 (Home screen with tabs + cards) ---------- */
+
+    .frame-6 {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      background: url("Pic17.png") center/cover no-repeat;
+      overflow: hidden;
+      display: none;
+    }
+
+    /* Small account avatar in top-left */
+    .frame6-profile {
+      position: absolute;
+      left: 50px;
+      /* X=50 */
+      top: 25px;
+      /* Y=20 */
+      width: 75px;
+      height: 75px;
+      border-radius: 999px;
+      border: 4px solid #ffffff;
+      overflow: hidden;
+    }
+
+    .frame6-profile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    /* Bluetooth icon */
+    .frame6-bluetooth {
+      position: absolute;
+      left: 770px;
+      /* X818 */
+      top: 42px;
+      /* Y37 */
+      width: 45px;
+      /* W45 */
+      height: 45px;
+      /* H45 */
+    }
+
+    .frame6-bluetooth img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* Tabbar */
+    .frame6-tabs {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 85px;
+      font-family: "Poppins", sans-serif;
+    }
+
+    /* Purple rectangle highlight */
+    .frame6-tab-highlight {
+      position: absolute;
+      top: 48px;
+      /* Y=43 (ตามสเปค) */
+      left: 174px;
+      /* start at Home */
+      width: 76px;
+      /* Home width */
+      height: 33px;
+      background-color: #631AAD;
+      border-radius: 8px;
+      transition: all 0.25s ease;
+      z-index: 1;
+    }
+
+    .frame6-tab {
+      position: absolute;
+      top: 53px;
+      /* Y=48 ตามสเปค */
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      z-index: 2;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      outline: none;
+    }
+
+    #tabHome {
+      left: 189px;
+      color: rgba(255, 255, 255, 1);
+    }
+
+    #tabHealthcare {
+      left: 274px;
+      color: rgba(0, 0, 0, 0.9);
+    }
+
+    #tabSports {
+      left: 389px;
+      color: rgba(0, 0, 0, 0.9);
+    }
+
+    #tabEducation {
+      left: 531px;
+      color: rgba(0, 0, 0, 0.9);
+    }
+
+    #tabCommunity {
+      left: 638px;
+      color: rgba(0, 0, 0, 0.9);
+    }
+
+    /* Home cards area – slide แบบ Frame2 */
+    .frame6-home-cards-wrapper {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 130px;
+      /* Y ของการ์ดแถวบน */
+      bottom: 0;
+      overflow: hidden;
+      /* ไม่ใช้ scroll แล้ว */
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .frame6-home-cards {
+      position: absolute;
+      display: flex;
+      flex-direction: row;
+      gap: 17px;
+      /* ระยะห่าง 17 */
+      padding-left: 42px;
+      /* X=42 ของ card1 */
+      padding-right: 42px;
+      transition: transform 0.25s ease;
+      will-change: transform;
+    }
+
+    .frame6-card {
+      flex: 0 0 340px;
+      /* W=340 */
+      height: 210px;
+      /* H=210 */
+      position: relative;
+    }
+
+    .frame6-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      border-radius: 16px;
+    }
+
+    /* Fix_Menu ในแต่ละ card – ใช้ right/bottom ตามตัวอย่าง card1 */
+    .frame6-card-menu {
+      position: absolute;
+      width: 6px;
+      height: 23.71px;
+      right: 30px;
+      bottom: 25px;
+    }
+
+    .frame6-card-menu img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- FRAME 1: Welcome -->
+  <div class="frame-1">
+    <div class="main-picture">
+      <img src="Pic3.png" alt="Main Main Picture">
+    </div>
+
+    <div class="title">Welcome</div>
+
+    <div class="subtitle">
+      Let me help you. Your chatbot assistant
+      is here to support you.
+    </div>
+
+    <div class="option-card option-card-1">
+      <img src="Pic1.png" alt="Option 1">
+    </div>
+
+    <div class="option-card option-card-2">
+      <img src="Pic2.png" alt="Option 2">
+    </div>
+  </div>
+
+  <!-- FRAME 2: Carousel -->
+  <div class="frame-2">
+    <div class="frame2-close">
+      <img src="Pic9.png" alt="Go to profile setup">
+    </div>
+
+    <div class="slider-wrapper">
+      <div class="slider" id="slider">
+        <div class="slide">
+          <img src="Pic8.png" alt="Slide 1">
+        </div>
+        <div class="slide">
+          <img src="Pic10.png" alt="Slide 2">
+        </div>
+        <div class="slide">
+          <img src="Pic11.png" alt="Slide 3">
+        </div>
+      </div>
+    </div>
+
+    <div class="frame2-btn-left" id="btnLeft">
+      <img src="Pic6.png" alt="Left button">
+    </div>
+
+    <div class="frame2-btn-right" id="btnRight">
+      <img src="Pic7.png" alt="Right button">
+    </div>
+
+    <div class="frame2-dot frame2-dot-1" id="dot1"></div>
+    <div class="frame2-dot frame2-dot-2" id="dot2"></div>
+    <div class="frame2-dot frame2-dot-3" id="dot3"></div>
+  </div>
+
+  <!-- FRAME 3: Nickname + Profile icon -->
+  <div class="frame-3">
+    <div class="frame3-btn-left" id="frame3Back">
+      <img src="Pic6.png" alt="Back to slides">
+    </div>
+
+    <div class="frame3-btn-right" id="frame3Next">
+      <img src="Pic7.png" alt="Go to age select">
+    </div>
+
+    <div class="profile-avatar" id="avatarBtn">
+      <img src="Pic13.png" alt="Profile Avatar" id="avatarImage">
+    </div>
+
+    <input type="text" class="nickname-input" id="nicknameInput" placeholder="Nickname" />
+  </div>
+
+  <!-- FRAME AVATAR -->
+  <div class="frame-avatar" id="frameAvatar">
+    <div class="profile-option profile-1"><img src="Profile1.png" alt="Profile 1"></div>
+    <div class="profile-option profile-2"><img src="Profile2.png" alt="Profile 2"></div>
+    <div class="profile-option profile-3"><img src="Profile3.png" alt="Profile 3"></div>
+    <div class="profile-option profile-4"><img src="Profile4.png" alt="Profile 4"></div>
+    <div class="profile-option profile-5"><img src="Profile5.png" alt="Profile 5"></div>
+    <div class="profile-option profile-6"><img src="Profile6.png" alt="Profile 6"></div>
+    <div class="profile-option profile-7"><img src="Profile7.png" alt="Profile 7"></div>
+    <div class="profile-option profile-8"><img src="Profile8.png" alt="Profile 8"></div>
+    <div class="profile-option profile-9"><img src="Profile9.png" alt="Profile 9"></div>
+    <div class="profile-option profile-10"><img src="Profile10.png" alt="Profile 10"></div>
+  </div>
+
+  <!-- FRAME 4: Age select -->
+  <div class="frame-4" id="frame4">
+    <div class="age-title">
+      Select your age category, and we’ll customize <br>
+      the features for you.
+    </div>
+
+    <div class="frame4-btn-left" id="frame4Back">
+      <img src="Pic6.png" alt="Back to nickname">
+    </div>
+
+    <div class="frame4-btn-right" id="frame4Next">
+      <img src="Pic7.png" alt="Next (age)">
+    </div>
+
+    <div class="age-card age-1" data-age="Age1"><img src="Age1.png" alt="Age 1"></div>
+    <div class="age-card age-2" data-age="Age2"><img src="Age2.png" alt="Age 2"></div>
+    <div class="age-card age-3" data-age="Age3"><img src="Age3.png" alt="Age 3"></div>
+    <div class="age-card age-4" data-age="Age4"><img src="Age4.png" alt="Age 4"></div>
+    <div class="age-card age-5" data-age="Age5"><img src="Age5.png" alt="Age 5"></div>
+  </div>
+
+  <!-- FRAME 5: Well done + accounts -->
+  <div class="frame-5" id="frame5">
+    <div class="done-title">Well done!</div>
+    <div class="done-subtitle">The assistant is ready for you to use.</div>
+    <div class="profiles-list" id="profilesList"></div>
+  </div>
+
+  <!-- FRAME 6: Home screen -->
+  <div class="frame-6" id="frame6">
+    <!-- Mini account avatar -->
+    <div class="frame6-profile">
+      <img src="Pic13.png" alt="Profile" id="frame6ProfileImg">
+    </div>
+
+    <!-- Bluetooth icon -->
+    <div class="frame6-bluetooth">
+      <img src="Bluetooth.png" alt="Bluetooth">
+    </div>
+
+    <!-- Tabs -->
+    <div class="frame6-tabs">
+      <div class="frame6-tab-highlight" id="tabHighlight"></div>
+      <div class="frame6-tab" id="tabHome">Home</div>
+      <div class="frame6-tab" id="tabHealthcare">Healthcare</div>
+      <div class="frame6-tab" id="tabSports">Sports&amp;Fitness</div>
+      <div class="frame6-tab" id="tabEducation">Education</div>
+      <div class="frame6-tab" id="tabCommunity">Community</div>
+    </div>
+
+    <!-- Home cards only -->
+    <div class="frame6-home-cards-wrapper" id="homeCards">
+      <div class="frame6-home-cards" id="homeCardsTrack">
+        <!-- Card 1 (X42) -->
+        <div class="frame6-card">
+          <img src="Card1.png" alt="Card 1">
+          <div class="frame6-card-menu">
+            <img src="Fix_Menu.png" alt="Menu">
+          </div>
+        </div>
+        <!-- Card 2 (X399 = 42 + 340 + 17) -->
+        <div class="frame6-card">
+          <img src="Card2.png" alt="Card 2">
+          <div class="frame6-card-menu">
+            <img src="Fix_Menu.png" alt="Menu">
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="frame6-card">
+          <img src="Card3.png" alt="Card 3">
+          <div class="frame6-card-menu">
+            <img src="Fix_Menu.png" alt="Menu">
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="frame6-card">
+          <img src="Card4.png" alt="Card 4">
+          <div class="frame6-card-menu">
+            <img src="Fix_Menu.png" alt="Menu">
+          </div>
+        </div>
+        <!-- Card 5 -->
+        <div class="frame6-card">
+          <img src="Card5.png" alt="Card 5">
+          <div class="frame6-card-menu">
+            <img src="Fix_Menu.png" alt="Menu">
+          </div>
+        </div>
+        <!-- Card 6 -->
+        <div class="frame6-card">
+          <img src="Card6.png" alt="Card 6">
+          <div class="frame6-card-menu">
+            <img src="Fix_Menu.png" alt="Menu">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const frame1 = document.querySelector('.frame-1');
+    const frame2 = document.querySelector('.frame-2');
+    const frame3 = document.querySelector('.frame-3');
+    const frameAvatar = document.getElementById('frameAvatar');
+    const frame4 = document.getElementById('frame4');
+    const frame5 = document.getElementById('frame5');
+    const frame6 = document.getElementById('frame6');
+
+    const option1 = document.querySelector('.option-card-1');
+    const option2 = document.querySelector('.option-card-2');
+
+    const slider = document.getElementById('slider');
+    const btnLeft = document.getElementById('btnLeft');
+    const btnRight = document.getElementById('btnRight');
+    const frame2Close = document.querySelector('.frame2-close');
+
+    const dot1 = document.getElementById('dot1');
+    const dot2 = document.getElementById('dot2');
+    const dot3 = document.getElementById('dot3');
+
+    const frame3Back = document.getElementById('frame3Back');
+    const frame3Next = document.getElementById('frame3Next');
+    const avatarBtn = document.getElementById('avatarBtn');
+    const avatarImage = document.getElementById('avatarImage');
+    const nicknameInput = document.getElementById('nicknameInput');
+
+    const profileOptions = document.querySelectorAll('.frame-avatar .profile-option');
+
+    const frame4Back = document.getElementById('frame4Back');
+    const frame4Next = document.getElementById('frame4Next');
+    const ageCards = document.querySelectorAll('.age-card');
+
+    const profilesList = document.getElementById('profilesList');
+
+    const frame6ProfileImg = document.getElementById('frame6ProfileImg');
+    const tabHighlight = document.getElementById('tabHighlight');
+    const tabHome = document.getElementById('tabHome');
+    const tabHealthcare = document.getElementById('tabHealthcare');
+    const tabSports = document.getElementById('tabSports');
+    const tabEducation = document.getElementById('tabEducation');
+    const tabCommunity = document.getElementById('tabCommunity');
+    const homeCardsWrapper = document.getElementById('homeCards');
+    const homeCardsTrack = document.getElementById('homeCardsTrack');
+
+    const totalSlides = 3;
+    let currentIndex = 0;
+    let startX = 0;
+    let startTranslate = 0;
+    let isDragging = false;
+    let sliderWidth = 0;
+
+    let profiles = [];
+    let deleteModeId = null;
+    let currentProfile = null; // profile currently opened in Frame6
+
+    const ageMap = {
+      Age1: 'Early Kids Ages 5–8',
+      Age2: 'Kids Ages 9–12',
+      Age3: 'Teens Ages 13–17',
+      Age4: 'Adults Ages 18–59',
+      Age5: 'Older Adults Ages 60+'
+    };
+
+    // Tab rectangle positions & widths
+    const tabConfig = {
+      home: { left: 174, width: 76 },
+      healthcare: { left: 259, width: 115 },
+      sports: { left: 374, width: 143 },
+      education: { left: 516, width: 107 },
+      community: { left: 623, width: 122 }
+    };
+
+    const tabOrder = ['home', 'healthcare', 'sports', 'education', 'community'];
+    let currentTabName = 'home';
+
+    // Home cards slide – แบบที่ 1: ลากต่อเนื่อง, ไม่มี snap, เพิ่ม inertia เบา ๆ
+    const HOME_CARD_WIDTH = 340;
+    const HOME_CARD_GAP = 17;
+    const HOME_STEP = HOME_CARD_WIDTH + HOME_CARD_GAP;
+    const HOME_TOTAL = 6;
+
+    let homeIndex = 0; // ใช้ตอน reset
+    let homeStartX = 0;
+    let homeStartTranslate = 0;
+    let homeDragging = false;
+    let homeMinTranslate = 0;
+    let homeMaxTranslate = 0;
+
+    // สำหรับ inertia
+    let homeLastX = 0;
+    let homeLastTime = 0;
+    let homeVelocity = 0;
+
+    function calcHomeBounds() {
+      if (!homeCardsTrack || !homeCardsWrapper) return { min: 0, max: 0 };
+      const trackWidth = homeCardsTrack.scrollWidth;
+      const wrapperWidth = homeCardsWrapper.offsetWidth;
+      const max = 0;
+      // min = เลื่อนไปขวาสุดแล้ว การ์ดสุดท้ายยังห่างขอบขวา 42px
+      const min = Math.min(0, wrapperWidth - trackWidth - 42);
+      return { min, max };
+    }
+
+    function hideAllFrames() {
+      frame1.style.display = 'none';
+      frame2.style.display = 'none';
+      frame3.style.display = 'none';
+      frameAvatar.style.display = 'none';
+      frame4.style.display = 'none';
+      frame5.style.display = 'none';
+      frame6.style.display = 'none';
+    }
+
+    function goToFrame1() {
+      hideAllFrames();
+      frame1.style.display = 'block';
+      document.body.style.backgroundImage = 'url("Pic4.png")';
+    }
+
+    function goToFrame2() {
+      hideAllFrames();
+      frame2.style.display = 'block';
+      document.body.style.backgroundImage = 'url("Pic5.png")';
+
+      updateSliderSize();
+      setIndex(0, false);
+      requestAnimationFrame(() => {
+        slider.style.transition = 'transform 0.25s ease';
+      });
+    }
+
+    function goToFrame3New() {
+      hideAllFrames();
+      frame3.style.display = 'block';
+      document.body.style.backgroundImage = 'url("Pic12.png")';
+      nicknameInput.value = '';
+      nicknameInput.placeholder = 'Nickname';
+      avatarImage.src = 'Pic13.png';
+    }
+
+    function goToFrame3Keep() {
+      hideAllFrames();
+      frame3.style.display = 'block';
+      document.body.style.backgroundImage = 'url("Pic12.png")';
+    }
+
+    function goToAvatarFrame() {
+      hideAllFrames();
+      frameAvatar.style.display = 'block';
+      document.body.style.backgroundImage = 'url("Pic14.png")';
+    }
+
+    function goToFrame4Age() {
+      hideAllFrames();
+      frame4.style.display = 'block';
+      document.body.style.backgroundImage = 'url("Pic15.png")';
+    }
+
+    function goToFrame5Accounts() {
+      hideAllFrames();
+      frame5.style.display = 'block';
+      document.body.style.backgroundImage = 'url("Pic15.png")';
+      renderProfiles();
+    }
+
+    function goToFrame6() {
+      if (!currentProfile && profiles.length > 0) {
+        currentProfile = profiles[0];
+      }
+
+      hideAllFrames();
+      frame6.style.display = 'block';
+      document.body.style.backgroundImage = 'url("Pic17.png")';
+
+      if (currentProfile && frame6ProfileImg) {
+        frame6ProfileImg.src = currentProfile.avatarSrc;
+      }
+
+      // default tab = Home
+      setActiveTab('home');
+      // reset home cards
+      setHomeIndex(0, false);
+    }
+
+    function updateDots() {
+      [dot1, dot2, dot3].forEach(dot => {
+        dot.style.background = 'transparent';
+        dot.style.border = '3px solid rgba(0,0,0,0.45)';
+      });
+
+      if (currentIndex === 0) {
+        dot1.style.background = 'rgba(0,0,0,0.65)';
+        dot1.style.border = 'none';
+      } else if (currentIndex === 1) {
+        dot2.style.background = 'rgba(0,0,0,0.65)';
+        dot2.style.border = 'none';
+      } else if (currentIndex === 2) {
+        dot3.style.background = 'rgba(0,0,0,0.65)';
+        dot3.style.border = 'none';
+      }
+    }
+
+    function updateSliderSize() {
+      sliderWidth = slider.offsetWidth / totalSlides;
+    }
+
+    function setIndex(idx, withTransition = true) {
+      currentIndex = idx;
+      slider.style.transition = withTransition ? 'transform 0.25s ease' : 'none';
+      const tx = -sliderWidth * currentIndex;
+      slider.style.transform = `translateX(${tx}px)`;
+      updateDots();
+    }
+
+    function showFrame2FromWelcome() {
+      goToFrame2();
+    }
+
+    option1.addEventListener('click', showFrame2FromWelcome);
+    option2.addEventListener('click', showFrame2FromWelcome);
+
+    frame2Close.addEventListener('click', () => {
+      goToFrame3New();
+    });
+
+    function goNext() {
+      if (currentIndex < totalSlides - 1) {
+        setIndex(currentIndex + 1, true);
+      } else {
+        if (profiles.length > 0) {
+          goToFrame5Accounts();
+        } else {
+          goToFrame3New();
+        }
+      }
+    }
+
+    function goLeftAction() {
+      if (currentIndex > 0) {
+        setIndex(currentIndex - 1, true);
+      } else {
+        goToFrame1();
+      }
+    }
+
+    btnRight.addEventListener('click', goNext);
+    btnLeft.addEventListener('click', goLeftAction);
+
+    slider.addEventListener('touchstart', (e) => {
+      if (sliderWidth === 0) updateSliderSize();
+      isDragging = true;
+      slider.style.transition = 'none';
+      startX = e.touches[0].clientX;
+      startTranslate = -sliderWidth * currentIndex;
+    }, { passive: true });
+
+    slider.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      const x = e.touches[0].clientX;
+      const deltaX = x - startX;
+      let nextTranslate = startTranslate + deltaX;
+
+      const minTranslate = -sliderWidth * (totalSlides - 1);
+      const maxTranslate = 0;
+      if (nextTranslate > maxTranslate) nextTranslate = maxTranslate;
+      if (nextTranslate < minTranslate) nextTranslate = minTranslate;
+
+      slider.style.transform = `translateX(${nextTranslate}px)`;
+    }, { passive: true });
+
+    function endDrag(e) {
+      if (!isDragging) return;
+      isDragging = false;
+      slider.style.transition = 'transform 0.25s ease';
+
+      const endX = e.changedTouches[0].clientX;
+      const diff = endX - startX;
+      const threshold = sliderWidth * 0.15;
+
+      if (diff < -threshold && currentIndex < totalSlides - 1) {
+        setIndex(currentIndex + 1, true);
+      } else if (diff > threshold && currentIndex > 0) {
+        setIndex(currentIndex - 1, true);
+      } else {
+        setIndex(currentIndex, true);
+      }
+    }
+
+    slider.addEventListener('touchend', endDrag);
+    slider.addEventListener('touchcancel', endDrag);
+
+    window.addEventListener('resize', () => {
+      if (frame2.style.display === 'block') {
+        updateSliderSize();
+        setIndex(currentIndex, false);
+      }
+    });
+
+    frame3Back.addEventListener('click', () => {
+      goToFrame2();
+      setIndex(totalSlides - 1, false);
+    });
+
+    frame3Next.addEventListener('click', () => {
+      goToFrame4Age();
+    });
+
+    avatarBtn.addEventListener('click', () => {
+      goToAvatarFrame();
+    });
+
+    profileOptions.forEach(option => {
+      option.addEventListener('click', () => {
+        const img = option.querySelector('img');
+        if (img && avatarImage) {
+          avatarImage.src = img.src;
+        }
+        goToFrame3Keep();
+      });
+    });
+
+    if (nicknameInput) {
+      nicknameInput.addEventListener('focus', () => {
+        nicknameInput.setAttribute('data-old-placeholder', nicknameInput.placeholder);
+        nicknameInput.placeholder = '';
+      });
+
+      nicknameInput.addEventListener('blur', () => {
+        if (nicknameInput.value.trim() === '') {
+          const oldPh = nicknameInput.getAttribute('data-old-placeholder') || 'Nickname';
+          nicknameInput.placeholder = oldPh;
+        }
+      });
+    }
+
+    frame4Back.addEventListener('click', () => {
+      goToFrame3Keep();
+    });
+
+    if (frame4Next) {
+      frame4Next.addEventListener('click', () => {
+        goToFrame3Keep();
+      });
+    }
+
+    function createProfile(ageKey) {
+      const name = nicknameInput.value.trim() || 'Guest';
+      const avatarSrc = avatarImage.src || 'Pic13.png';
+      const ageText = ageMap[ageKey] || '';
+
+      const profile = {
+        id: Date.now().toString() + Math.random().toString(16).slice(2),
+        name,
+        avatarSrc,
+        ageKey,
+        ageText
+      };
+
+      profiles.push(profile);
+      goToFrame5Accounts();
+    }
+
+    ageCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const ageKey = card.getAttribute('data-age');
+        createProfile(ageKey);
+      });
+    });
+
+    function renderProfiles() {
+      profilesList.innerHTML = '';
+
+      profiles.forEach(profile => {
+        const card = document.createElement('div');
+        card.className = 'profile-card';
+        card.dataset.id = profile.id;
+
+        const avatarWrap = document.createElement('div');
+        avatarWrap.className = 'profile-card-avatar';
+
+        const img = document.createElement('img');
+        img.src = profile.avatarSrc;
+        img.alt = profile.name;
+
+        avatarWrap.appendChild(img);
+
+        const overlay = document.createElement('div');
+        overlay.className = 'profile-delete-overlay';
+        overlay.innerHTML = '<img src="Pic16.png" alt="Delete">';
+
+        function deleteThisCard(e) {
+          e.stopPropagation();
+          const id = card.dataset.id;
+          profiles = profiles.filter(p => p.id !== id);
+          deleteModeId = null;
+          renderProfiles();
+        }
+
+        overlay.addEventListener('click', deleteThisCard);
+        overlay.addEventListener('touchend', deleteThisCard);
+
+        avatarWrap.appendChild(overlay);
+
+        const nameEl = document.createElement('div');
+        nameEl.className = 'profile-name';
+        nameEl.textContent = profile.name;
+
+        card.appendChild(avatarWrap);
+        card.appendChild(nameEl);
+
+        attachLongPress(card, profile.id);
+
+        // Click account -> ไป Frame6
+        card.addEventListener('click', () => {
+          if (deleteModeId) return; // ถ้าอยู่ในโหมดลบ ไม่ต้องเข้า
+          currentProfile = profile;
+          goToFrame6();
+        });
+
+        profilesList.appendChild(card);
+      });
+
+      const addCard = document.createElement('div');
+      addCard.className = 'profile-card add-card';
+
+      const avatarWrap = document.createElement('div');
+      avatarWrap.className = 'profile-card-avatar';
+
+      const addImg = document.createElement('img');
+      addImg.src = 'ProfileAdd.png';
+      addImg.alt = 'Add Profile';
+
+      avatarWrap.appendChild(addImg);
+      addCard.appendChild(avatarWrap);
+
+      addCard.addEventListener('click', () => {
+        goToFrame3New();
+      });
+
+      profilesList.appendChild(addCard);
+    }
+
+    function attachLongPress(card, id) {
+      let timer = null;
+
+      const start = (ev) => {
+        if (ev.type === 'mousedown') {
+          ev.preventDefault();
+        }
+        timer = setTimeout(() => {
+          toggleDeleteMode(id);
+        }, 600);
+      };
+
+      const cancel = () => {
+        if (timer) {
+          clearTimeout(timer);
+          timer = null;
+        }
+      };
+
+      card.addEventListener('touchstart', start, { passive: true });
+      card.addEventListener('mousedown', start);
+
+      ['touchend', 'touchcancel', 'mouseup', 'mouseleave'].forEach(evt => {
+        card.addEventListener(evt, cancel);
+      });
+    }
+
+    function toggleDeleteMode(id) {
+      if (deleteModeId === id) {
+        deleteModeId = null;
+      } else {
+        deleteModeId = id;
+      }
+
+      const cards = profilesList.querySelectorAll('.profile-card');
+      cards.forEach(c => {
+        if (c.dataset.id === deleteModeId) {
+          c.classList.add('show-delete');
+        } else {
+          c.classList.remove('show-delete');
+        }
+      });
+    }
+
+    // ---------- Tabs logic (ลากได้ + flick เลือก tab + slide animation) ----------
+
+    function setActiveTab(name) {
+      const cfg = tabConfig[name];
+      if (!cfg || !tabHighlight) return;
+
+      currentTabName = name;
+
+      tabHighlight.style.left = cfg.left + 'px';
+      tabHighlight.style.width = cfg.width + 'px';
+
+      // reset colors
+      tabHome.style.color = 'rgba(0,0,0,0.9)';
+      tabHealthcare.style.color = 'rgba(0,0,0,0.9)';
+      tabSports.style.color = 'rgba(0,0,0,0.9)';
+      tabEducation.style.color = 'rgba(0,0,0,0.9)';
+      tabCommunity.style.color = 'rgba(0,0,0,0.9)';
+
+      if (name === 'home') tabHome.style.color = 'rgba(255,255,255,0.9)';
+      if (name === 'healthcare') tabHealthcare.style.color = 'rgba(255,255,255,0.9)';
+      if (name === 'sports') tabSports.style.color = 'rgba(255,255,255,0.9)';
+      if (name === 'education') tabEducation.style.color = 'rgba(255,255,255,0.9)';
+      if (name === 'community') tabCommunity.style.color = 'rgba(255,255,255,0.9)';
+
+      // Only Home shows cards
+      if (homeCardsWrapper) {
+        homeCardsWrapper.style.display = (name === 'home') ? 'block' : 'none';
+      }
+    }
+
+    tabHome.addEventListener('click', () => setActiveTab('home'));
+    tabHealthcare.addEventListener('click', () => setActiveTab('healthcare'));
+    tabSports.addEventListener('click', () => setActiveTab('sports'));
+    tabEducation.addEventListener('click', () => setActiveTab('education'));
+    tabCommunity.addEventListener('click', () => setActiveTab('community'));
+
+    function getNearestTabNameByCenter(highlightLeft) {
+      const highlightStyle = window.getComputedStyle(tabHighlight);
+      const highlightWidth = parseFloat(highlightStyle.width) || tabConfig[currentTabName].width;
+      const highlightCenter = highlightLeft + highlightWidth / 2;
+
+      let bestName = currentTabName;
+      let bestDist = Infinity;
+
+      tabOrder.forEach(name => {
+        const cfg = tabConfig[name];
+        const center = cfg.left + cfg.width / 2;
+        const d = Math.abs(center - highlightCenter);
+        if (d < bestDist) {
+          bestDist = d;
+          bestName = name;
+        }
+      });
+
+      return bestName;
+    }
+
+    let tabDragActive = false;
+    let tabDragStartX = 0;
+    let tabDragBaseLeft = 0;
+    let tabLastX = 0;
+    let tabLastTime = 0;
+    let tabVelocity = 0;
+
+    const minTabLeft = tabConfig.home.left;
+    const maxTabLeft = tabConfig.community.left;
+
+    function tabTouchStart(e) {
+      if (!tabHighlight) return;
+      const touch = e.touches[0];
+      tabDragActive = true;
+      tabDragStartX = touch.clientX;
+
+      const style = window.getComputedStyle(tabHighlight);
+      tabDragBaseLeft = parseFloat(style.left) || tabConfig[currentTabName].left;
+
+      tabLastX = tabDragStartX;
+      tabLastTime = performance.now();
+      tabVelocity = 0;
+
+      tabHighlight.style.transition = 'none';
+    }
+
+    function tabTouchMove(e) {
+      if (!tabDragActive || !tabHighlight) return;
+      const touch = e.touches[0];
+      const x = touch.clientX;
+      const dx = x - tabDragStartX;
+
+      let newLeft = tabDragBaseLeft + dx;
+      if (newLeft < minTabLeft) newLeft = minTabLeft;
+      if (newLeft > maxTabLeft) newLeft = maxTabLeft;
+
+      tabHighlight.style.left = newLeft + 'px';
+
+      const now = performance.now();
+      const dt = now - tabLastTime;
+      if (dt > 0) {
+        tabVelocity = (x - tabLastX) / dt; // px/ms
+      }
+      tabLastX = x;
+      tabLastTime = now;
+    }
+
+    function tabTouchEnd(e) {
+      if (!tabDragActive || !tabHighlight) return;
+      tabDragActive = false;
+
+      const style = window.getComputedStyle(tabHighlight);
+      const currentLeft = parseFloat(style.left) || tabConfig[currentTabName].left;
+
+      // project position using velocity (ฟีล inertia)
+      const projectionMs = 250;
+      let projectedLeft = currentLeft + tabVelocity * projectionMs;
+
+      if (projectedLeft < minTabLeft) projectedLeft = minTabLeft;
+      if (projectedLeft > maxTabLeft) projectedLeft = maxTabLeft;
+
+      const targetTab = getNearestTabNameByCenter(projectedLeft);
+
+      // ให้ rectangle slide ไปที่ tab ด้วย transition เดิม
+      tabHighlight.style.transition = 'all 0.25s ease';
+      setActiveTab(targetTab);
+    }
+
+    if (tabHighlight) {
+      tabHighlight.addEventListener('touchstart', tabTouchStart, { passive: true });
+      tabHighlight.addEventListener('touchmove', tabTouchMove, { passive: true });
+      tabHighlight.addEventListener('touchend', tabTouchEnd);
+      tabHighlight.addEventListener('touchcancel', tabTouchEnd);
+    }
+
+    // ---------- Home cards slide logic: ใช้ wrapper จับ touch + inertia + ขอบขวาเว้น 42px ----------
+
+    function setHomeIndex(idx, withTransition = true) {
+      if (!homeCardsTrack) return;
+      homeIndex = idx;
+      const bounds = calcHomeBounds();
+      const tx = Math.max(bounds.min, Math.min(bounds.max, -HOME_STEP * homeIndex));
+      homeCardsTrack.style.transition = withTransition ? 'transform 0.25s ease' : 'none';
+      homeCardsTrack.style.transform = `translateX(${tx}px)`;
+    }
+
+    if (homeCardsWrapper && homeCardsTrack) {
+      homeCardsWrapper.addEventListener('touchstart', (e) => {
+        homeDragging = true;
+        homeCardsTrack.style.transition = 'none';
+        homeStartX = e.touches[0].clientX;
+
+        const style = window.getComputedStyle(homeCardsTrack);
+        const matrix = new WebKitCSSMatrix(style.transform);
+        homeStartTranslate = matrix.m41;
+
+        const bounds = calcHomeBounds();
+        homeMinTranslate = bounds.min;
+        homeMaxTranslate = bounds.max;
+
+        homeLastX = homeStartX;
+        homeLastTime = performance.now();
+        homeVelocity = 0;
+      }, { passive: true });
+
+      homeCardsWrapper.addEventListener('touchmove', (e) => {
+        if (!homeDragging) return;
+        const x = e.touches[0].clientX;
+
+        // เพิ่มความไวลากนิดนึง
+        const deltaX = (x - homeStartX) * 1.2;
+
+        // ไม่ต้องมี threshold แล้ว → แตะแล้วลากได้เลย
+        // if (Math.abs(deltaX) < 1) return;
+
+        let nextTranslate = homeStartTranslate + deltaX;
+
+        if (nextTranslate > homeMaxTranslate) nextTranslate = homeMaxTranslate;
+        if (nextTranslate < homeMinTranslate) nextTranslate = homeMinTranslate;
+
+        homeCardsTrack.style.transform = `translateX(${nextTranslate}px)`;
+
+        const now = performance.now();
+        const dt = now - homeLastTime;
+        if (dt > 0) {
+          homeVelocity = (x - homeLastX) / dt; // px/ms
+        }
+        homeLastX = x;
+        homeLastTime = now;
+      }, { passive: true });
+
+      function endHomeDrag(e) {
+        if (!homeDragging) return;
+        homeDragging = false;
+
+        const style = window.getComputedStyle(homeCardsTrack);
+        const matrix = new WebKitCSSMatrix(style.transform);
+        let current = matrix.m41;
+
+        // inertia นิ่ม ๆ
+        const projectionMs = 500; // เพิ่มความไหลให้มากขึ้น
+        let projected = current + homeVelocity * projectionMs;
+
+        if (projected > homeMaxTranslate) projected = homeMaxTranslate;
+        if (projected < homeMinTranslate) projected = homeMinTranslate;
+
+        homeCardsTrack.style.transition = 'transform 0.3s ease-out';
+        homeCardsTrack.style.transform = `translateX(${projected}px)`;
+      }
+
+      homeCardsWrapper.addEventListener('touchend', endHomeDrag);
+      homeCardsWrapper.addEventListener('touchcancel', endHomeDrag);
+    }
+
+    document.addEventListener('contextmenu', function (e) {
+      e.preventDefault();
+    });
+  </script>
+</body>
+
+</html>
